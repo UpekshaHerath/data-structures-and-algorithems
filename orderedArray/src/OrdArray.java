@@ -62,9 +62,14 @@ public class OrdArray {
     }
 
     void display() { // display array elements
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i] + " ");
+        if (this.nElements == 0) {
+            System.out.println("Array is empty...");
+            return;
         }
+        for (int i = 0; i < this.nElements; i++) {
+            System.out.print(a[i] + " ");
+        }
+        System.out.println();
     }
 
 
