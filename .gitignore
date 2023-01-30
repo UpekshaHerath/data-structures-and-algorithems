@@ -1,0 +1,11 @@
+*.iml
+.idea/
+out/
+*.ipr
+*.iws
+*.iml
+*.class
+*.log
+*.txt
+*.swp
+.DS_Store
