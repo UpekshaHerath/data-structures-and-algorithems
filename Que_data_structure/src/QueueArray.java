@@ -11,7 +11,8 @@ public class QueueArray {
         this.nItems = 0;
     }
 
-    public void enQueue(int newValue) { // insert an value to the queue
+    // insert an value to the queue
+    public void enQueue(int newValue) {
         if (this.isFull()) {
             System.out.println("Queue is full. Can't insert another value");
             return;
@@ -19,26 +20,43 @@ public class QueueArray {
         queArray[this.nItems] = newValue;
         this.nItems++;
         this.rear = newValue;
+        if (this.nItems == 1) {
+            this.front = newValue;
+        }
         System.out.println("Insertion is success");
 
     }
 
-    public int deQueue() throws Exception { // delete an item from the queue
+    // delete an item from the queue
+    public int deQueue() throws Exception {
         if (this.isEmpty()) {
             throw new Exception("Que is empty can not remove values");
         } else {
             int temp = this.queArray[0];
             this.front = this.queArray[1];
             for (int i = 1; i < this.nItems; i++) {
-                this.queArray[i-1] = this.queArray[i];
+                this.queArray[i - 1] = this.queArray[i];
             }
-            this.nItems--; // set
+            this.nItems--;
             return temp;
         }
     }
 
-    public int peek() { // return the front item of the queue without deleting.
-        return this.front;
+    // return the front item of the queue without deleting.
+    public int peek() throws Exception {
+        if (isEmpty()) {
+            throw new Exception("Stack is empty. No peek value");
+        } else {
+            return this.front;
+        }
+    }
+
+    // return the end value of the queue without deleting
+    public int end() throws Exception {
+        if (isEmpty()) {
+            throw new Exception("Stack is empty. No rear value");
+        }
+        return this.rear;
     }
 
     public boolean isEmpty() {
